@@ -5,7 +5,7 @@ const AnimatedLogo = () => {
     <div className="relative w-32 h-32 mx-auto">
       {/* Outer glow ring */}
       <motion.div
-        className="absolute -inset-6"  // Changed from -inset-4
+        className="absolute -inset-5"  // Changed from -inset-6
         animate={{
           scale: [1, 1.1, 1],
           opacity: [0.3, 0.7, 0.3],
@@ -29,7 +29,7 @@ const AnimatedLogo = () => {
         <div className="relative w-full h-full">
           {/* Animated background circles */}
           <motion.div
-            className="absolute -inset-6"  // Changed from inset-0
+            className="absolute -inset-5"  // Changed from -inset-6
             animate={{
               scale: [1, 1.1, 1],
               opacity: [0.5, 0.2, 0.5],
@@ -44,7 +44,7 @@ const AnimatedLogo = () => {
           </motion.div>
           
           {/* Static ring */}
-          <div className="absolute -inset-6 border-2 border-primary/20 rounded-full" />  {/* Changed from inset-0 */}
+          <div className="absolute -inset-5 border-2 border-primary/20 rounded-full" />  {/* Changed from -inset-6 */}
 
           {/* Main logo image */}
           <motion.img
@@ -88,7 +88,7 @@ const AnimatedLogo = () => {
       </motion.div>
 
       {/* Pulse effect */}
-      <div className="absolute -inset-6">  {/* Changed from -inset-4 */}
+      <div className="absolute -inset-5">  {/* Changed from -inset-6 */}
         <motion.div
           className="w-full h-full bg-gradient-to-r from-primary/5 via-secondary/5 to-primary/5 rounded-full"
           animate={{
