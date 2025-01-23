@@ -41,14 +41,15 @@ const AnimatedLogo = () => {
             }}
           />
           
-          {/* Static ring (removed rotation) */}
+          {/* Static ring */}
           <div className="absolute inset-0 border-2 border-primary/20 rounded-full" />
 
-          {/* Main logo image (removed rotation) */}
+          {/* Main logo image */}
           <motion.img
             src="/lovable-uploads/85805f7a-3864-47de-ac9e-01d19b8a5178.png"
             alt="AI Logo"
             className="w-full h-full object-contain relative z-10"
+            style={{ transform: 'none' }}
             animate={{
               scale: [1, 1.05, 1],
             }}
