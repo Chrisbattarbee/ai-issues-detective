@@ -5,7 +5,7 @@ const AnimatedLogo = () => {
     <div className="relative w-32 h-32 mx-auto">
       {/* Outer glow ring */}
       <motion.div
-        className="absolute -inset-5"  // Changed from -inset-6
+        className="absolute -inset-5"
         animate={{
           scale: [1, 1.1, 1],
           opacity: [0.3, 0.7, 0.3],
@@ -29,7 +29,7 @@ const AnimatedLogo = () => {
         <div className="relative w-full h-full">
           {/* Animated background circles */}
           <motion.div
-            className="absolute -inset-5"  // Changed from -inset-6
+            className="absolute -inset-5"
             animate={{
               scale: [1, 1.1, 1],
               opacity: [0.5, 0.2, 0.5],
@@ -44,7 +44,7 @@ const AnimatedLogo = () => {
           </motion.div>
           
           {/* Static ring */}
-          <div className="absolute -inset-5 border-2 border-primary/20 rounded-full" />  {/* Changed from -inset-6 */}
+          <div className="absolute -inset-5 border-2 border-primary/20 rounded-full" />
 
           {/* Main logo image */}
           <motion.img
@@ -67,20 +67,20 @@ const AnimatedLogo = () => {
             <motion.div
               key={i}
               className="absolute w-2 h-2 bg-secondary/50 rounded-full"
-              initial={{
-                x: Math.random() * 100 - 50,
-                y: Math.random() * 100 - 50,
-              }}
               animate={{
-                x: Math.random() * 100 - 50,
-                y: Math.random() * 100 - 50,
-                opacity: [0.2, 0.8, 0.2],
+                x: [0, 50, 0, -50, 0],
+                y: [0, -50, 0, 50, 0],
+                opacity: [0.2, 0.8, 0.2, 0.8, 0.2],
               }}
               transition={{
-                duration: 3 + i,
+                duration: 8 + i * 2,
                 repeat: Infinity,
-                ease: "easeInOut",
-                delay: i * 0.5,
+                ease: "linear",
+                times: [0, 0.25, 0.5, 0.75, 1],
+              }}
+              style={{
+                left: '50%',
+                top: '50%',
               }}
             />
           ))}
@@ -88,7 +88,7 @@ const AnimatedLogo = () => {
       </motion.div>
 
       {/* Pulse effect */}
-      <div className="absolute -inset-5">  {/* Changed from -inset-6 */}
+      <div className="absolute -inset-5">
         <motion.div
           className="w-full h-full bg-gradient-to-r from-primary/5 via-secondary/5 to-primary/5 rounded-full"
           animate={{
