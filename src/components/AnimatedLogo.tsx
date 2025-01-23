@@ -3,6 +3,23 @@ import { motion } from "framer-motion";
 const AnimatedLogo = () => {
   return (
     <div className="relative w-32 h-32 mx-auto">
+      {/* Outer glow ring */}
+      <motion.div
+        className="absolute -inset-4"
+        animate={{
+          scale: [1, 1.1, 1],
+          opacity: [0.3, 0.7, 0.3],
+        }}
+        transition={{
+          duration: 4,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+      >
+        <div className="w-full h-full bg-gradient-to-r from-primary/20 via-secondary/20 to-primary/20 rounded-full blur-md" />
+      </motion.div>
+
+      {/* Main logo container */}
       <motion.div
         className="absolute inset-0"
         initial={{ scale: 0.8, opacity: 0 }}
@@ -10,11 +27,12 @@ const AnimatedLogo = () => {
         transition={{ duration: 0.5 }}
       >
         <div className="relative w-full h-full">
+          {/* Animated background circles */}
           <motion.div
-            className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-full"
+            className="absolute inset-0 bg-gradient-to-r from-primary/30 to-secondary/30 rounded-full"
             animate={{
               scale: [1, 1.1, 1],
-              opacity: [0.7, 0.3, 0.7],
+              opacity: [0.5, 0.2, 0.5],
             }}
             transition={{
               duration: 3,
@@ -22,23 +40,75 @@ const AnimatedLogo = () => {
               ease: "easeInOut",
             }}
           />
+          
+          {/* Rotating ring */}
+          <motion.div
+            className="absolute inset-0 border-2 border-primary/20 rounded-full"
+            animate={{
+              rotate: 360,
+            }}
+            transition={{
+              duration: 8,
+              repeat: Infinity,
+              ease: "linear",
+            }}
+          />
+
+          {/* Main logo image */}
           <motion.img
             src="/lovable-uploads/85805f7a-3864-47de-ac9e-01d19b8a5178.png"
             alt="AI Logo"
             className="w-full h-full object-contain relative z-10"
             animate={{
-              scale: [1, 1.02, 1],
+              scale: [1, 1.05, 1],
+              rotate: [0, 5, 0, -5, 0],
             }}
             transition={{
-              duration: 2,
+              duration: 5,
               repeat: Infinity,
               ease: "easeInOut",
             }}
           />
+
+          {/* Floating particles */}
+          {[...Array(3)].map((_, i) => (
+            <motion.div
+              key={i}
+              className="absolute w-2 h-2 bg-secondary/50 rounded-full"
+              initial={{
+                x: Math.random() * 100 - 50,
+                y: Math.random() * 100 - 50,
+              }}
+              animate={{
+                x: Math.random() * 100 - 50,
+                y: Math.random() * 100 - 50,
+                opacity: [0.2, 0.8, 0.2],
+              }}
+              transition={{
+                duration: 3 + i,
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: i * 0.5,
+              }}
+            />
+          ))}
         </div>
       </motion.div>
+
+      {/* Pulse effect */}
       <div className="absolute -inset-4">
-        <div className="w-full h-full bg-gradient-to-r from-primary/10 to-secondary/10 rounded-full animate-pulse" />
+        <motion.div
+          className="w-full h-full bg-gradient-to-r from-primary/5 via-secondary/5 to-primary/5 rounded-full"
+          animate={{
+            scale: [1, 1.2, 1],
+            opacity: [0.3, 0, 0.3],
+          }}
+          transition={{
+            duration: 2,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
       </div>
     </div>
   );
